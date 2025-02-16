@@ -116,6 +116,11 @@ app.delete('/api/deleteCareer/:id', async (req, res) => {
   }
 });
 
+// Add this route to handle GET requests to the root path
+app.get('/', (req, res) => {
+  res.status(200).send('Welcome to the API!'); // You can customize this message
+});
+
 app.use((req, res, next) => {
   console.log(`${req.method} request for '${req.url}'`);
   next();
