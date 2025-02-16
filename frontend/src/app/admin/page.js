@@ -7,6 +7,7 @@ import { Input } from "@/app/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/app/components/ui/Table";
 
 const AdminPage = () => {
+  console.log('Frontend URL:', process.env.NEXT_PUBLIC_FRONTEND_URL);
   const [contactData, setContactData] = useState([]);
   const [careerData, setCareerData] = useState([]);
   const [error, setError] = useState(null);
