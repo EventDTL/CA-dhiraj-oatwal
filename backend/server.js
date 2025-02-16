@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://cadfrontend.vercel.app', // Replace with your frontend URL
+  origin: 'https://www.cadhirajostwal.com', // Replace with your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
   credentials: true // Allow credentials if needed
 }));
