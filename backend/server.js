@@ -15,7 +15,10 @@ const uri = process.env.MONGODB_URI;
 // MongoDB connection
 mongoose.connect(uri)
   .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+    process.exit(1); // Exit the process if the connection fails
+  });
 
 // Define the Contact model
 const Contact = mongoose.model('Contact', new mongoose.Schema({
@@ -50,16 +53,16 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// GET route to fetch contact data
+
 app.get('/api/getContacts', async (req, res) => {
   try {
-    const contacts = await Contact.find({});
+    const contacts = await Contact.find({}).limit(100); // Limit the number of results
     res.status(200).json(contacts);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error fetching contacts' });
   }
-});
+}); 
 
 // POST route to save career data
 app.post('/api/career', async (req, res) => {
@@ -129,5 +132,6 @@ app.use((req, res, next) => {
 // Start the server
 // app.listen(PORT, () => {
 //   console.log(`Server is running on http://localhost:${PORT}`);
-// }); 
+// });
+
 module.exports = app;
