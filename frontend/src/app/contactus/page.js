@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import { format } from 'date-fns'; // Import the format function from date-fns
 
 const ContactUsPage = () => {
-  console.log('Frontend URL:', process.env.NEXT_PUBLIC_FRONTEND_URL);
   const [subject, setSubject] = useState("Business");
   const [formData, setFormData] = useState({
     firstName: '',

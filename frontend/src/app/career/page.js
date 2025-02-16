@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { format } from 'date-fns'; // Import the format function from date-fns
 
 const CareerPage = () => {
-  console.log('Frontend URL:', process.env.NEXT_PUBLIC_FRONTEND_URL);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
