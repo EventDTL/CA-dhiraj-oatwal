@@ -46,7 +46,7 @@ const ContactUsPage = () => {
     };
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/contact`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

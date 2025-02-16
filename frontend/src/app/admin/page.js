@@ -17,7 +17,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchContactData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/getContacts`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}api/getContacts`);
         if (!response.ok) {
           throw new Error('Failed to fetch contacts');
         }
@@ -34,7 +34,7 @@ const AdminPage = () => {
 
     const fetchCareerData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/getCareers`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}api/getCareers`);
         if (!response.ok) {
           throw new Error('Failed to fetch careers');
         }
@@ -65,7 +65,7 @@ const AdminPage = () => {
   const handleDeleteContact = async (id) => {
     console.log(`Attempting to delete contact with ID: ${id}`); // Log the ID
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/deleteContact/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}api/deleteContact/${id}`, {
         method: 'DELETE',
       });
 
@@ -82,7 +82,7 @@ const AdminPage = () => {
   const handleDeleteCareer = async (id) => {
     console.log(`Attempting to delete career with ID: ${id}`); // Log the ID
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/deleteCareer/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}api/deleteCareer/${id}`, {
         method: 'DELETE',
       });
 
