@@ -46,7 +46,7 @@ const CareerPage = () => {
     };
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}api/career`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/career`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
