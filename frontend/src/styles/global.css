@@ -1,0 +1,9 @@
+*{
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: var(--font-inter, sans-serif);
+  }

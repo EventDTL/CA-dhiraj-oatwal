@@ -1,0 +1,11 @@
+
+@media (min-width: 769px) {
+    .imageContainer:nth-child(3n + 2) {
+      transform: translateY(44px);
+    }
+  }
+  
+  
+  
+  
+  
