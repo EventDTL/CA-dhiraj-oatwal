@@ -7,11 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({
-  origin: 'https://cadfrontend.vercel.app', // Allow your frontend origin
-  methods: ['GET', 'POST', 'DELETE'], // Specify allowed methods
-  credentials: true // Allow credentials if needed
-}));
+app.use(cors());
 app.use(bodyParser.json());
 require('dotenv').config();
 const uri = process.env.MONGODB_URI;
