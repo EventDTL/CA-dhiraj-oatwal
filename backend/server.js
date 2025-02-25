@@ -8,9 +8,15 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'https://www.cadhirajostwal.com', // Replace with your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
-  credentials: true // Allow credentials if needed
+  origin: [
+    'https://www.cadhirajostwal.com',
+    'https://cadhirajostwal.com',
+    'http://localhost:3000' // For local development
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
 app.use(bodyParser.json());
 require('dotenv').config();

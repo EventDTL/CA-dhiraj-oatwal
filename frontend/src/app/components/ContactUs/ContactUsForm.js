@@ -50,9 +50,12 @@ const ContactUsForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/contact`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
         body: JSON.stringify({
           ...formData,
           date: new Date().toISOString().split('T')[0],
