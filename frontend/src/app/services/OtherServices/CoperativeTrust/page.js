@@ -42,7 +42,13 @@ const CoperativeTrust = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/Corporate.jpg" alt="Cooperative Trust" className={styles.img} />
+              <Image 
+                src="/images/Corporate.jpg" 
+                alt="Cooperative Trust" 
+                className={styles.img} 
+                width={600} 
+                height={400} 
+              />
             </div>
 
             <h2> Introduction to Co-operative Societies</h2>
