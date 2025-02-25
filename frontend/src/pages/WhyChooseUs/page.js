@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
             We offer a wide range of services to cater to your diverse financial
             needs, from tax compliance to business strategy coaching.
           </p>
-          <img src="/WhyChooseUs.svg" className="bg-gray-900" />
+          <img src="/WhyChooseUs.svg" alt="Why Choose Us Illustration" className="bg-gray-900" />
         </div>
         <div className="bg-ligvio lg:mt-52 lg:px-5 lg:py-14 ag:h-[270px] ag:w-[290px] lg:h-[466px] lg:w-[381px] ag:px-3 ag:py-5 ag:mt-4 ag:rounded-xl af:w-[360px] af:h-[300px] af:px-8 af:py-8 sm:px-3 sm:py-4 sm:mt-48 sm:rounded-tr-3xl sm:rounded-l-none sm:rounded-br-none sm:rounded-bl-none md:px-5 md:py-7">
           <h2 className="text-black font-bold font-inter sm:mb-0 lg:text-6xl lg:mb-4 ag:text-3xl ag:mb-4">

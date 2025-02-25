@@ -19,9 +19,10 @@ const FinancialServices = () => {
             style={{ height: "70%" }}
           >
             <img
-              src="/AuditServiceHome.svg"
-              style={{ width: "186px", height: "134px" }}
-            />
+  src="/AuditServiceHome.svg"
+  alt="Audit Service Icon"
+  style={{ width: "186px", height: "134px" }}
+/>
           </div>
           <div
             className="text-center flex justify-center items-center"
