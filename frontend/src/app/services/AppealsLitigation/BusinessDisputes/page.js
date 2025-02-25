@@ -59,7 +59,7 @@ const BusinessDisputes = () => {
             </p>
 
             <div className={styles.imageContainer}>
-              <img src="/images/Business Disputes.png" alt="Business Disputes Guide" className={styles.img} />
+              <Image src="/images/Business Disputes.png" alt="Business Disputes Guide" className={styles.img} width={600} height={400} />
             </div>
 
             <h2>Legal Help Services: Your First Line of Defense</h2>
@@ -595,7 +595,7 @@ const BusinessDisputes = () => {
 
             <h3>2. When should I seek legal help for a business dispute?</h3>
             <p>
-              It’s advisable to seek legal help as soon as you recognize a
+              It's advisable to seek legal help as soon as you recognize a
               potential legal issue. Early consultation with a business lawyer
               can help in understanding your rights and obligations, and can
               potentially prevent the dispute from escalating further.

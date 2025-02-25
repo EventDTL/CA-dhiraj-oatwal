@@ -72,7 +72,7 @@ const Subsidy = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/subsidy.png" alt="Subsidy" className={styles.img} />
+              <Image src="/images/subsidy.png" alt="Subsidy" className={styles.img} width={600} height={400} />
             </div>
             <h2>Introduction: Demystifying Subsidies</h2>
             <p>

@@ -75,7 +75,7 @@ const ImportExport = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/impexp.png" alt="Import Export" className={styles.img} />
+              <Image src="/images/impexp.png" alt="Import Export" className={styles.img} width={600} height={400} />
             </div>
             <h2>Introduction: The Global Marketplace and India&aposs Role</h2>
             <p>
@@ -407,7 +407,7 @@ const ImportExport = () => {
               Import-export refers to the process of buying goods or services
               from foreign countries (importing) or selling goods or services to
               foreign markets (exporting). It is a key part of international
-              trade, enabling countries to acquire products they don’t produce
+              trade, enabling countries to acquire products they don't produce
               domestically and sell excess products to other nations.
             </p>
 

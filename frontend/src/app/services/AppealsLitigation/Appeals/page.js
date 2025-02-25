@@ -69,7 +69,7 @@ const Appeals = () => {
             </p>
 
             <div className={styles.imageContainer}>
-              <img src="/images/Activity Create your own comic strip.png" alt="Appeals" className={styles.img} />
+              <Image src="/images/Activity Create your own comic strip.png" alt="Appeals" className={styles.img} width={600} height={400} />
             </div>
 
             <h2>Types of Appeals</h2>

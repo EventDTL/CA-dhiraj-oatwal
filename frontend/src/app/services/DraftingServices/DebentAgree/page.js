@@ -61,7 +61,8 @@ const DebentureAgree = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/deb1.jpg" alt="Debenture Agreement Guide" className={styles.img} />
+              <Image width={600} 
+                height={400} src="/images/deb1.jpg" alt="Debenture Agreement Guide" className={styles.img} />
             </div>
             <h1>Introduction: What are Debentures?</h1>
             <p>

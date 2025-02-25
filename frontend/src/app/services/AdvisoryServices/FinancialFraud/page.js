@@ -71,7 +71,7 @@ const FinancialFraud = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/finfraud.png" alt="Financial Fraud" className={styles.img} />
+              <Image src="/images/finfraud.png" alt="Financial Fraud" className={styles.img} width={600} height={400} />
             </div>
             <h2>Introduction: The Growing Threat of Financial Fraud</h2>
             <p>

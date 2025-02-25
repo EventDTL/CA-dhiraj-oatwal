@@ -62,11 +62,7 @@ const Complience = () => {
             </p>
 
             <div className={styles.imageContainer}>
-              <img
-                src="/images/Compliance Services A Comprehensive Guide to Regulatory Requirements, Audits, and Best Practices.png"
-                alt="Complience Audit Guide"
-                className={styles.img}
-              />
+              <Image src="/images/Compliance Services A Comprehensive Guide to Regulatory Requirements, Audits, and Best Practices.png" alt="Compliance Audit Guide" className={styles.img} width={600} height={400} />
             </div>
 
             <h2> Regulatory Compliance Framework</h2>

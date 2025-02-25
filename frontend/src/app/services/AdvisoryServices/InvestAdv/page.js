@@ -68,7 +68,7 @@ const InvestAdv = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/invest.png" alt="Investment Advisory" className={styles.img} />
+              <Image src="/images/invest.png" alt="Investment Advisory" className={styles.img} width={600} height={400} />
             </div>
 
             <h2>Introduction: Understanding Investment Advisory</h2>
@@ -270,7 +270,7 @@ const InvestAdv = () => {
             <div className={styles.unordered1}>
               <ul>
                 <li>
-                  Fiduciary responsibility: Always acting in the client&aposs best
+                  Fiduciary responsibility: Always acting in the client&apos best
                   interest
                 </li>
                 <li>
@@ -607,8 +607,7 @@ const InvestAdv = () => {
             <div className={styles.unordered1}>
               <ul>
                 <li>
-                  Holistic approach considering all aspects of a client&aposs
-                  financial life
+                  Holistic approach considering all aspects of a client&apos financial life
                 </li>
                 <li>
                   Integration of investment strategies with tax planning,

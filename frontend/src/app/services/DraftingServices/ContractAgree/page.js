@@ -60,7 +60,8 @@ const ContractAgree = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/con.png" alt="Contract Agreement Guide" className={styles.img} />
+              <Image width={600} 
+                height={400} src="/images/con.png" alt="Contract Agreement Guide" className={styles.img} />
             </div>
             <h1>Introduction: The Importance of Contracts and Agreements</h1>
             <p>

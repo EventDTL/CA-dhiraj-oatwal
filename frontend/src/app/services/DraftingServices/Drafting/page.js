@@ -67,7 +67,8 @@ const Drafting = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img
+              <Image width={600} 
+                height={400}
                 src="/images/Draft.jpg"
                 alt="Drafting Guide"
                 className={styles.img}

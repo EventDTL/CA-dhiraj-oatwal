@@ -66,7 +66,7 @@ const PropertyAdv = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/property.png" alt="Property Advisory" className={styles.img} />
+              <Image src="/images/property.png" alt="Property Advisory" className={styles.img} width={600} height={400} />
             </div>
             <h2>Introduction: The Complexities of Property Ownership</h2>
             <p>

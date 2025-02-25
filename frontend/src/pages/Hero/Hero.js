@@ -51,7 +51,7 @@ const Hero = () => {
   return (
     <div className="w-full h-auto xl:h-full mt-20">
       <div className="h-[635px] ag:h-[487px] af:h-[570px] xl:h-[850px] ag:mx-2 sm:mx-16 md:mx-32 rounded-3xl mt-4 flex items-center justify-center relative">
-        {/* Image section */}
+        {/* Desktop Image */}
         <Image
           src="/ORGfullSCR.png"
           alt="Financial advisor"
@@ -59,38 +59,51 @@ const Hero = () => {
           height={678}
           className="absolute hidden md:block object-contain xl:top-[-20px] md:top-[0px] md:mt-12"
           priority
+          quality={90}
         />
-        <Image
-          src="/activecus.svg"
-          alt="Financial advisor"
-          width={145}
-          height={100}
-          className="absolute hidden md:block object-contain md:h-[45px] md:w-[100px] md:bottom-[86px] md:right-[12px] xl:h-[100px] xl:w-[145px] xl:top-[613px] xl:left-[1015px] 2xl:left-[1055px]"
-        />
+
+        {/* Tablet Image */}
         <Image
           src="/tabscreen.svg"
           alt="Financial advisor"
           width={610}
           height={515}
           className="absolute hidden sm:block md:hidden object-contain sm:top-[20px]"
+          priority
         />
-        <Image
-          src="/activecus.svg"
-          alt="Financial advisor"
-          width={120}
-          height={70}
-          className="absolute hidden sm:block md:hidden object-contain sm:bottom-[35px] sm:right-[25px]"
-        />
+
+        {/* Mobile Image */}
         <Image
           src="/mobscreen.svg"
           alt="Financial advisor"
           width={360}
           height={530}
           className="absolute block sm:hidden object-contain ag:h-[510px] ag:w-[300px] ag:top-[-30px] af:w-[340px] af:top-[25px] aa:h-[530px] aa:w-[360px] aa:top-[8px]"
+          priority
         />
+
+        {/* Active Customer Badge - Desktop */}
         <Image
           src="/activecus.svg"
-          alt="Financial advisor"
+          alt="Active customers"
+          width={145}
+          height={100}
+          className="absolute hidden md:block object-contain md:h-[45px] md:w-[100px] md:bottom-[86px] md:right-[12px] xl:h-[100px] xl:w-[145px] xl:top-[613px] xl:left-[1015px] 2xl:left-[1055px]"
+        />
+
+        {/* Active Customer Badge - Tablet */}
+        <Image
+          src="/activecus.svg"
+          alt="Active customers"
+          width={120}
+          height={70}
+          className="absolute hidden sm:block md:hidden object-contain sm:bottom-[35px] sm:right-[25px]"
+        />
+
+        {/* Active Customer Badge - Mobile */}
+        <Image
+          src="/activecus.svg"
+          alt="Active customers"
           width={150}
           height={70}
           className="absolute block sm:hidden object-contain ag:h-[68px] ag:w-[115px] ag:bottom-[45px] ag:right-[7px] af:h-[68px] af:w-[150px] af:bottom-[46px] af:left-[204px] aa:left-[236px] aa:h-[70px] aa:bottom-[42px]"

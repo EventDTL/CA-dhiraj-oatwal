@@ -77,7 +77,7 @@ const LifeGeneral = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/Lg.png" alt="Life and General Insurance" className={styles.img} />
+              <Image src="/images/Lg.png" alt="Life and General Insurance" className={styles.img} width={600} height={400} />
             </div>
             <h2>Introduction: What is Insurance?</h2>
             <p>
@@ -553,7 +553,7 @@ const LifeGeneral = () => {
                 <ul>
                   <li>
                     Life Insurance: Provides financial support to beneficiaries
-                    upon the policyholder’s death.
+                    upon the policyholder's death.
                   </li>
                   <li>
                     Health Insurance: Covers medical expenses, including

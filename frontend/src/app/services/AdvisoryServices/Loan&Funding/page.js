@@ -84,7 +84,7 @@ const LoanFund = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/Share2.png" alt="Loan & Funding" className={styles.img} />
+              <Image src="/images/Share2.png" alt="Loan & Funding" className={styles.img} width={600} height={400} />
             </div>
 
             <h2>Introduction: The Importance of Funding for Startups</h2>

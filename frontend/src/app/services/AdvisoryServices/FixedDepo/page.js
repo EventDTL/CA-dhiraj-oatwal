@@ -79,7 +79,7 @@ const FixedDepo = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/fixed.png" alt="Fixed Deposit" className={styles.img} />
+              <Image src="/images/fixed.png" alt="Fixed Deposit" className={styles.img} width={600} height={400} />
             </div>
             <h2>Introduction: Understanding Fixed Deposits</h2>
             <p>

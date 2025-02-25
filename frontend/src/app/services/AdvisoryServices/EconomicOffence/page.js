@@ -62,7 +62,7 @@ const EconomicOffence = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/economic.png" alt="Economic Offecnce" className={styles.img} />
+              <Image src="/images/economic.png" alt="Economic Offence" className={styles.img} width={600} height={400} />
             </div>
             <h2>Introduction: Understanding Economic Offences</h2>
             <p>

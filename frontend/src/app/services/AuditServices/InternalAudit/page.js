@@ -76,11 +76,7 @@ const InternalAudit = () => {
             </p>
 
             <div className={styles.imageContainer}>
-              <img
-                src="/images/Internal Audit Guide to Processes, Reporting, and Best Practices.png"
-                alt="Internal Audit Guide"
-                className={styles.img}
-              />
+              <Image src="/images/Internal Audit Guide to Processes, Reporting, and Best Practices.png" alt="Internal Audit Guide" className={styles.img} width={600} height={400} />
             </div>
 
             <h2>Internal Audit Framework</h2>

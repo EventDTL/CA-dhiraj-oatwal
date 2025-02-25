@@ -115,7 +115,7 @@ const Litigations = () => {
               addressing grievances and enforcing rights
             </p>
             <div className={styles.imageContainer}>
-              <img src="/images/Litigation Unveiled A Comprehensive Guide to Legal Disputes.png" alt="Income Tax Guide" className={styles.img} />
+              <Image src="/images/Litigation Unveiled A Comprehensive Guide to Legal Disputes.png" alt="Litigation Guide" className={styles.img} width={600} height={400} />
             </div>
             <h2>The Litigation Process: From Filing to Resolution</h2>
             <p>

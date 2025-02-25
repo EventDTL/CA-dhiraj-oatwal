@@ -68,7 +68,8 @@ const AOA = () => {
           </div>
           <div className={styles.blog}>
             <div className={styles.imageContainer}>
-              <img src="/images/AOA1.jpg" alt="Artical of Association" className={styles.img} />
+              <Image src="/images/AOA1.jpg" alt="Artical of Association" className={styles.img} width={600} 
+                height={400}/>
             </div>
 
             <h1>Introduction to Articles of Association</h1>
