@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { format } from 'date-fns'; // Import the format function from date-fns
+import { Toaster } from 'react-hot-toast';
 
 const ContactUsPage = () => {
   const [subject, setSubject] = useState("Business");
@@ -149,6 +150,7 @@ const ContactUsPage = () => {
                   <img
                     src="/map.svg"
                     className="h-4 w-4 md:h-[18px] md:w-[18px]"
+                    alt="map"
                   />
                   <p className="pl-4 text-white md:pl-6 pr-4 md:pr-12">
                     2nd Floor, Shree Krishna, 7, Shirole Lane, opp. Kiosk
@@ -164,6 +166,7 @@ const ContactUsPage = () => {
                     width={30}
                     height={30}
                     className="h-6 w-6 md:h-[30px] md:w-[30px]"
+                    alt="twitter"
                   />
                 </Link>
                 <Link href={"https://www.instagram.com/cadhirajostwal/"}>
@@ -172,6 +175,7 @@ const ContactUsPage = () => {
                     width={30}
                     height={30}
                     className="h-6 w-6 md:h-[30px] md:w-[30px]"
+                    alt="instagram"
                   />
                 </Link>
                   <Image
@@ -179,7 +183,8 @@ const ContactUsPage = () => {
                     width={30}
                     height={30}
                     className="h-6 w-6 md:h-[30px] md:w-[30px]"
-                  />
+                    alt="discord"
+                    />
               </div>
             </div>
           </div>
@@ -334,6 +339,7 @@ const ContactUsPage = () => {
           </div>
         </div>
       </div>
+      <Toaster position="top-right" />
     </div>
   );
 };

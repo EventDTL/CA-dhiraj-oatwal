@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { format } from 'date-fns'; // Import the format function from date-fns
+import { toast, Toaster } from 'react-hot-toast'; // Import toast
 
 const CareerPage = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const CareerPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,27 +33,49 @@ const CareerPage = () => {
     }
   };
 
+  const validateForm = () => {
+    const errors = [];
+    
+    if (!formData.firstName.trim()) errors.push('First name is required');
+    if (!formData.lastName.trim()) errors.push('Last name is required');
+    if (!formData.email.trim()) errors.push('Email is required');
+    if (!formData.phone.trim()) errors.push('Phone is required');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) errors.push('Invalid email format');
+
+    const phoneRegex = /^\+?[\d\s-]{10,}$/;
+    if (!phoneRegex.test(formData.phone)) errors.push('Invalid phone number format');
+
+    return errors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Get current date and time using date-fns
-    const currentDate = new Date();
-    const date = format(currentDate, 'yyyy-MM-dd'); // Format date as YYYY-MM-DD
-    const time = format(currentDate, 'HH:mm:ss'); // Format time as HH:MM:SS
+    const errors = validateForm();
+    if (errors.length > 0) {
+      errors.forEach(error => toast.error(error));
+      return;
+    }
 
-    const dataToSubmit = {
-      ...formData,
-      date,
-      time,
-    };
+    setIsSubmitting(true);
 
     try {
+      const currentDate = new Date();
+      const date = format(currentDate, 'yyyy-MM-dd');
+      const time = format(currentDate, 'HH:mm:ss');
+
       const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/career`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(dataToSubmit),
+        body: JSON.stringify({
+          ...formData,
+          date,
+          time,
+        }),
       });
 
       if (!response.ok) {
@@ -59,13 +83,8 @@ const CareerPage = () => {
       }
 
       const result = await response.json();
-      console.log(result);
-
-      // Show thank you message
-      setThankYouMessage('Thank you for applying!');
-      setErrorMessage(''); // Clear any previous error messages
-
-      // Clear the form data
+      
+      // Reset form and show success message
       setFormData({
         firstName: '',
         lastName: '',
@@ -73,9 +92,14 @@ const CareerPage = () => {
         phone: '',
         resumeUrl: '',
       });
+      
+      toast.success('Application submitted successfully!');
+
     } catch (error) {
-      console.error(error);
-      setErrorMessage('There was an error submitting the form. Please try again.');
+      console.error('Submission error:', error);
+      toast.error('Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -174,14 +198,40 @@ const CareerPage = () => {
 
           <button
             type="submit"
-            className="w-[123px] h-[32px] text-white bg-[#FF4400] rounded-[6px] font-[Poppins] font-medium text-[14px] flex justify-center items-center self-end sm:justify-self-center ag:justify-self-center"
+            disabled={isSubmitting}
+            className={`w-[123px] h-[32px] text-white bg-[#FF4400] rounded-[6px] font-[Poppins] font-medium text-[14px] flex justify-center items-center self-end sm:justify-self-center ag:justify-self-center
+              ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            Submit
+            {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
         </div>
       </form>
       {thankYouMessage && <p className="text-white mt-4">{thankYouMessage}</p>}
       {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+      
+      {/* Toast Container */}
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: '#333',
+            color: '#fff',
+          },
+          success: {
+            iconTheme: {
+              primary: '#4ade80',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
     </div>
   );
 };
