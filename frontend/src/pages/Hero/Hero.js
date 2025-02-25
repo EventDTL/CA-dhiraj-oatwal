@@ -90,14 +90,16 @@ const Hero = () => {
         />
 
         {/* Active Customer Badges */}
-        <div className="absolute z-20">
+        <div className="absolute inset-0 w-full h-full">
           {/* Desktop Badge */}
           <Image
             src="/activecus.svg"
             alt="Active customers"
             width={145}
             height={100}
-            className="hidden md:block object-contain md:h-[45px] md:w-[100px] md:bottom-[86px] md:right-[12px] xl:h-[100px] xl:w-[145px] xl:top-[613px] xl:left-[1015px] 2xl:left-[1055px]"
+            className="absolute hidden md:block object-contain 
+              md:h-[45px] md:w-[100px] md:bottom-[135px] md:right-[12px] 
+              xl:h-[100px] xl:w-[145px] xl:bottom-[160px] xl:right-[25px]"
           />
 
           {/* Mobile/Tablet Badge */}
@@ -106,7 +108,11 @@ const Hero = () => {
             alt="Active customers"
             width={120}
             height={70}
-            className="block md:hidden object-contain ag:h-[68px] ag:w-[115px] ag:bottom-[45px] ag:right-[7px] af:h-[68px] af:w-[150px] af:bottom-[46px] af:left-[204px] aa:left-[236px] aa:h-[70px] aa:bottom-[42px] sm:bottom-[35px] sm:right-[25px]"
+            className="absolute block md:hidden object-contain 
+              ag:h-[68px] ag:w-[115px] ag:bottom-[45px] ag:right-[7px] 
+              af:h-[68px] af:w-[120px] af:bottom-[46px] af:right-[20px] 
+              aa:right-[30px] aa:h-[70px] aa:bottom-[42px] 
+              sm:bottom-[35px] sm:right-[25px]"
           />
         </div>
 
@@ -133,18 +139,31 @@ const Hero = () => {
           </p>
 
           {/* Button */}
-          <button className="relative bg-white text-black font-semibold cursor-pointer 
-            flex items-center justify-center gap-2 rounded-[16px] overflow-hidden whitespace-nowrap
-            ag:mt-5 ag:w-[100px] ag:h-[25px] ag:text-[12px] ag:rounded-[4px] ag:p-1
-            sm:mt-5 sm:w-[140px] sm:h-[45px] sm:text-[16px]
-            md:mt-6 md:w-[120px] md:h-[30px]
-            xl:w-[155px] xl:h-[49px] xl:text-[16px]">
-            <span>Learn More</span>
-            <span className="text-[20px] ag:text-[12px]">+</span>
-            <div className="absolute w-[300%] h-[20px] bg-[#FF4400] top-0 left-[-200%] rotate-[45deg] 
-              transition-[left] duration-[700ms] ease-linear blur-sm opacity-50 shadow-[0_0_12px_#FF4400] hover:left-0">
-            </div>
-          </button>
+          <a 
+            href="https://wa.me/7020045454?text=Hi%20there,%20I'm%20interested%20in%20your%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative bg-[#ff4400c2] text-white font-semibold cursor-pointer 
+              flex items-center justify-center gap-2 rounded-[16px] overflow-hidden whitespace-nowrap
+              transform transition-all duration-300 ease-in-out
+              hover:scale-110 hover:shadow-[0_10px_20px_rgba(255,68,0,0.4)] hover:-translate-y-1
+              active:scale-95 active:shadow-[0_5px_10px_rgba(255,68,0,0.4)]
+              ag:mt-5 ag:w-[115px] ag:h-[40px] ag:text-[12px] ag:rounded-[4px] ag:p-1
+              sm:mt-5 sm:w-[140px] sm:h-[45px] sm:text-[16px]
+              md:mt-6 md:w-[120px] md:h-[30px]
+              xl:w-[155px] xl:h-[49px] xl:text-[16px]">
+            <span className="relative z-10">Contact Us</span>
+            <span className="relative z-10 text-[20px] ag:text-[12px]">→</span>
+            {/* Flash animation */}
+            <div className="absolute top-0 -left-[100%] w-[50%] h-full 
+              bg-gradient-to-r from-transparent via-white/30 to-transparent
+              skew-x-[30deg]
+              group-hover:animate-shine"></div>
+            {/* Glow effect */}
+            <div className="absolute inset-0 bg-[#FF4400] opacity-50 
+              group-hover:opacity-70 transition-opacity duration-300 
+              shadow-[0_0_12px_#FF4400]"></div>
+          </a>
 
           {/* Statistics Section */}
           <div
