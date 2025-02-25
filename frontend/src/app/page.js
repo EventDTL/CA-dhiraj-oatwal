@@ -1,4 +1,4 @@
-import AdBar from "../pages/AdBar/page";
+import AdBar from './components/AdBar/page';
 import FinancialServices from "@/pages/FinancialSer/page";
 import Hero from "@/pages/Hero/Hero";
 import Testimonial from "@/pages/Testimonials/page";
