@@ -11,12 +11,11 @@ app.use(cors({
   origin: [
     'https://www.cadhirajostwal.com',
     'https://cadhirajostwal.com',
-    'http://localhost:3000' // For local development
+    'http://localhost:3000'
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  optionsSuccessStatus: 200
+  credentials: true
 }));
 app.use(bodyParser.json());
 require('dotenv').config();
@@ -37,6 +36,7 @@ const Contact = mongoose.model('Contact', new mongoose.Schema({
   email: { type: String, required: true },
   phone: { type: String, required: true },
   message: { type: String, required: true },
+  subject: { type: String, required: true },
 }));
 
 // Define the Career model
@@ -51,10 +51,16 @@ const Career = mongoose.model('Career', new mongoose.Schema({
 
 // POST route to save contact data
 app.post('/api/contact', async (req, res) => {
-  const { firstName, lastName, email, phone, message } = req.body;
+  // Set CORS headers explicitly for this route
+  res.header('Access-Control-Allow-Origin', 'https://www.cadhirajostwal.com');
+  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+
+  const { firstName, lastName, email, phone, message, subject } = req.body;
 
   try {
-    const newContact = new Contact({ firstName, lastName, email, phone, message });
+    const newContact = new Contact({ firstName, lastName, email, phone, message, subject });
     await newContact.save();
     res.status(201).json({ message: 'Contact information saved successfully', data: newContact });
   } catch (error) {

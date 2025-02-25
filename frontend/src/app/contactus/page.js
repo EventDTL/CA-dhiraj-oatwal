@@ -51,11 +51,14 @@ const ContactUsPage = () => {
       const date = format(currentDate, 'yyyy-MM-dd');
       const time = format(currentDate, 'HH:mm:ss');
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/contact`, {
+      const response = await fetch('https://cadbackend.vercel.app/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
+        credentials: 'include',
+        mode: 'cors',
         body: JSON.stringify({
           ...formData,
           subject,
@@ -70,7 +73,7 @@ const ContactUsPage = () => {
 
       // Reset form and show success message
       resetForm();
-      form.reset(); // Reset the actual form element
+      form.reset();
       toast.success('Thank you for contacting us!');
 
     } catch (error) {

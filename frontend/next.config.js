@@ -32,6 +32,14 @@ const nextConfig = {
         ]
       }
     ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://cadbackend.vercel.app/api/:path*',
+      },
+    ];
   }
 };
 
