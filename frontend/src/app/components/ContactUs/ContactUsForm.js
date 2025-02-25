@@ -20,6 +20,13 @@ const ContactUsForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const clearForm = () => {
+    setFormData(initialFormState);
+    // Also clear any form elements directly if needed
+    const form = document.getElementById('contactForm');
+    if (form) form.reset();
+  };
+
   const validateForm = () => {
     const errors = [];
     
@@ -69,8 +76,8 @@ const ContactUsForm = () => {
         throw new Error(data.message || 'Something went wrong');
       }
 
-      // Reset form and show success message
-      setFormData(initialFormState);
+      // Clear form and show success message
+      clearForm();
       toast.success('Thank you for contacting us!');
 
     } catch (error) {
@@ -83,7 +90,7 @@ const ContactUsForm = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form id="contactForm" onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">First Name</label>

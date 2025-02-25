@@ -5,13 +5,15 @@ import { format } from 'date-fns'; // Import the format function from date-fns
 import { toast, Toaster } from 'react-hot-toast'; // Import toast
 
 const CareerPage = () => {
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
-    resumeUrl: '', // This will be set after uploading the resume
-  });
+    resumeUrl: '',
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
   const [thankYouMessage, setThankYouMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [date, setDate] = useState('');
@@ -24,12 +26,17 @@ const CareerPage = () => {
   };
 
   const handleFileChange = (e) => {
-    // Handle file upload logic here
     const file = e.target.files[0];
     if (file) {
-      // You can upload the file to your server and get the URL
-      // For now, just set the file name as a placeholder
       setFormData((prev) => ({ ...prev, resumeUrl: file.name }));
+    }
+  };
+
+  const resetForm = () => {
+    setFormData(initialFormState);
+    const form = document.getElementById('careerForm');
+    if (form) {
+      form.reset();
     }
   };
 
@@ -53,9 +60,11 @@ const CareerPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const errors = validateForm();
-    if (errors.length > 0) {
-      errors.forEach(error => toast.error(error));
+    const form = e.target;
+    const isValid = form.checkValidity();
+
+    if (!isValid) {
+      toast.error("Please fill in all required fields.");
       return;
     }
 
@@ -82,21 +91,12 @@ const CareerPage = () => {
         throw new Error('Failed to submit the form');
       }
 
-      const result = await response.json();
-      
       // Reset form and show success message
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        resumeUrl: '',
-      });
-      
+      resetForm();
       toast.success('Application submitted successfully!');
 
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error(error);
       toast.error('Failed to submit application. Please try again.');
     } finally {
       setIsSubmitting(false);
@@ -109,7 +109,7 @@ const CareerPage = () => {
         Want To Join <span style={{ color: "#FF4400" }}>Team</span>
       </h1>
 
-      <form onSubmit={handleSubmit} className="w-[76%] m-[66px_auto_0px] ag:w-[80%] ag:m-[45px_auto_0px] sm:w-[80%]">
+      <form id="careerForm" onSubmit={handleSubmit} className="w-[76%] m-[66px_auto_0px] ag:w-[80%] ag:m-[45px_auto_0px] sm:w-[80%]">
         {/* Box 1 */}
         <div className="grid grid-cols-2 gap-[45px] ag:grid-cols-1 sm:grid-cols-1">
           <div className="flex flex-col pb-[11px] border-b border-[#8D8D8D]">

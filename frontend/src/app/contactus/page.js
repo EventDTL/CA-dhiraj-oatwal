@@ -4,79 +4,80 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { format } from 'date-fns'; // Import the format function from date-fns
 import { Toaster } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 const ContactUsPage = () => {
-  const [subject, setSubject] = useState("Business");
-  const [formData, setFormData] = useState({
+  const initialFormState = {
     firstName: '',
     lastName: '',
     email: '',
     phone: '',
     message: '',
-  });
+  };
+
+  const [subject, setSubject] = useState("Business");
+  const [formData, setFormData] = useState(initialFormState);
   const [thankYouMessage, setThankYouMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const resetForm = () => {
+    setFormData(initialFormState);
+    setSubject("Business"); // Reset subject to default
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const isValid = form.checkValidity(); // Check if the form is valid
+    const isValid = form.checkValidity();
 
     if (!isValid) {
-      alert("Please fill in all required fields.");
+      toast.error("Please fill in all required fields.");
       return;
     }
 
-    // Get current date and time using date-fns
-    const currentDate = new Date();
-    const date = format(currentDate, 'yyyy-MM-dd'); // Format date as YYYY-MM-DD
-    const time = format(currentDate, 'HH:mm:ss'); // Format time as HH:MM:SS
-
-    const dataToSubmit = {
-      ...formData,
-      date,
-      time,
-    };
+    setIsSubmitting(true);
 
     try {
+      const currentDate = new Date();
+      const date = format(currentDate, 'yyyy-MM-dd');
+      const time = format(currentDate, 'HH:mm:ss');
+
       const response = await fetch(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(dataToSubmit),
+        body: JSON.stringify({
+          ...formData,
+          subject,
+          date,
+          time,
+        }),
       });
 
       if (!response.ok) {
         throw new Error('Failed to submit the form');
       }
 
-      const result = await response.json();
-      console.log(result);
+      // Reset form and show success message
+      resetForm();
+      form.reset(); // Reset the actual form element
+      toast.success('Thank you for contacting us!');
 
-      // Show thank you message
-      setThankYouMessage('Thank you for contacting us!');
-      setErrorMessage(''); // Clear any previous error messages
-
-      // Clear the form data
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: '',
-      });
     } catch (error) {
       console.error(error);
-      setErrorMessage('There was an error submitting the form. Please try again.');
+      toast.error('There was an error submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
