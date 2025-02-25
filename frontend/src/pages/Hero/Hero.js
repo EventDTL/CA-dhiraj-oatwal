@@ -51,66 +51,67 @@ const Hero = () => {
   return (
     <div className="w-full h-auto xl:h-full mt-20">
       <div className="h-[635px] ag:h-[487px] af:h-[570px] xl:h-[850px] ag:mx-2 sm:mx-16 md:mx-32 rounded-3xl mt-4 flex items-center justify-center relative">
-        {/* Desktop Image */}
+        {/* Main Hero Image - Responsive */}
         <Image
           src="/ORGfullSCR.png"
           alt="Financial advisor"
-          width={1265}
-          height={678}
-          className="absolute hidden md:block object-contain xl:top-[-20px] md:top-[0px] md:mt-12"
           priority
           quality={90}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1265px"
+          className="object-contain hidden md:block"
+          style={{
+            objectPosition: 'center top'
+          }}
         />
 
-        {/* Tablet Image */}
-        <Image
-          src="/tabscreen.svg"
-          alt="Financial advisor"
-          width={610}
-          height={515}
-          className="absolute hidden sm:block md:hidden object-contain sm:top-[20px]"
-          priority
-        />
-
-        {/* Mobile Image */}
+        {/* Mobile Hero Image */}
         <Image
           src="/mobscreen.svg"
           alt="Financial advisor"
-          width={360}
-          height={530}
-          className="absolute block sm:hidden object-contain ag:h-[510px] ag:w-[300px] ag:top-[-30px] af:w-[340px] af:top-[25px] aa:h-[530px] aa:w-[360px] aa:top-[8px]"
           priority
+          quality={90}
+          width={300}
+          height={510}
+          className="absolute block sm:hidden object-contain ag:h-[510px] ag:w-[300px] ag:top-[-30px] af:w-[340px] af:top-[25px] aa:h-[530px] aa:w-[360px] aa:top-[8px]"
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml;base64,..."  // Add a base64 placeholder
         />
 
-        {/* Active Customer Badge - Desktop */}
+        {/* Tablet Hero Image */}
         <Image
-          src="/activecus.svg"
-          alt="Active customers"
-          width={145}
-          height={100}
-          className="absolute hidden md:block object-contain md:h-[45px] md:w-[100px] md:bottom-[86px] md:right-[12px] xl:h-[100px] xl:w-[145px] xl:top-[613px] xl:left-[1015px] 2xl:left-[1055px]"
+          src="/tabscreen.svg"
+          alt="Financial advisor"
+          priority
+          quality={90}
+          width={610}
+          height={515}
+          className="absolute hidden sm:block md:hidden object-contain sm:top-[20px]"
         />
 
-        {/* Active Customer Badge - Tablet */}
-        <Image
-          src="/activecus.svg"
-          alt="Active customers"
-          width={120}
-          height={70}
-          className="absolute hidden sm:block md:hidden object-contain sm:bottom-[35px] sm:right-[25px]"
-        />
+        {/* Active Customer Badges */}
+        <div className="absolute z-20">
+          {/* Desktop Badge */}
+          <Image
+            src="/activecus.svg"
+            alt="Active customers"
+            width={145}
+            height={100}
+            className="hidden md:block object-contain md:h-[45px] md:w-[100px] md:bottom-[86px] md:right-[12px] xl:h-[100px] xl:w-[145px] xl:top-[613px] xl:left-[1015px] 2xl:left-[1055px]"
+          />
 
-        {/* Active Customer Badge - Mobile */}
-        <Image
-          src="/activecus.svg"
-          alt="Active customers"
-          width={150}
-          height={70}
-          className="absolute block sm:hidden object-contain ag:h-[68px] ag:w-[115px] ag:bottom-[45px] ag:right-[7px] af:h-[68px] af:w-[150px] af:bottom-[46px] af:left-[204px] aa:left-[236px] aa:h-[70px] aa:bottom-[42px]"
-        />
+          {/* Mobile/Tablet Badge */}
+          <Image
+            src="/activecus.svg"
+            alt="Active customers"
+            width={120}
+            height={70}
+            className="block md:hidden object-contain ag:h-[68px] ag:w-[115px] ag:bottom-[45px] ag:right-[7px] af:h-[68px] af:w-[150px] af:bottom-[46px] af:left-[204px] aa:left-[236px] aa:h-[70px] aa:bottom-[42px] sm:bottom-[35px] sm:right-[25px]"
+          />
+        </div>
 
-        {/* Text Section */}
-        <div className="absolute z-10 flex flex-col ag:top-[15px] ag:left-[20px] af:top-[60px] af:left-[35px] ag:w-3/4 aa:top-[30px] aa:left-[50px] xl:top-[100px] xl:left-[80px] sm:top-[90px] sm:left-[45px] md:top-[85px] md:left-[35px]">
+        {/* Text Content */}
+        <div className="absolute z-30 flex flex-col ag:top-[15px] ag:left-[20px] af:top-[60px] af:left-[35px] ag:w-3/4 aa:top-[30px] aa:left-[50px] xl:top-[100px] xl:left-[80px] sm:top-[90px] sm:left-[45px] md:top-[85px] md:left-[35px]">
           {/* Heading */}
           <h1 className="font-inter text-white font-bold text-left 
             ag:text-[20px] ag:leading-[24px] ag:w-[250px] ag:h-[82px]
